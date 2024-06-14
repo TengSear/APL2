@@ -13,7 +13,7 @@ public class LoginForm extends JFrame implements ActionListener {
     private JButton loginButton;
     private JLabel resultLabel;
 
-    public LoginForm () {
+    public LoginForm() {
         setTitle("Login Form");
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,10 +26,15 @@ public class LoginForm extends JFrame implements ActionListener {
         container.add(userLabel);
 
         userTextField = new JTextField();
-        userTextField.setBounds(50, 70, 100, 30);
+        userTextField.setBounds(150, 30, 150, 30);
+        container.add(userTextField);
+
+        passwordLabel = new JLabel("Password:");
+        passwordLabel.setBounds(50, 70, 100, 30);
         container.add(passwordLabel);
+
         passwordField = new JPasswordField();
-        passwordField.setBounds(150, 70,150, 30);
+        passwordField.setBounds(150, 70, 150, 30);
         container.add(passwordField);
 
         loginButton = new JButton("Login");
@@ -42,18 +47,20 @@ public class LoginForm extends JFrame implements ActionListener {
         container.add(resultLabel);
 
         setVisible(true);
-
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         String userText = userTextField.getText();
         String passwordText = new String(passwordField.getPassword());
         if (userText.equals("admin") && passwordText.equals("password123")) {
             resultLabel.setText("Login successful!");
-
-        } else{
+        } else {
             resultLabel.setText("Invalid username or password.");
         }
     }
 
+    public static void main(String[] args) {
+        new LoginForm();
+    }
 }
